@@ -2,6 +2,10 @@ import React from "react";
 import Navbar from "../../components/Navbar.jsx";
 
 const SignUp = () => {
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
     const handleSignUp = async (e) => {
         e.preventDefault();
     };
