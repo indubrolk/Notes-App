@@ -1,6 +1,9 @@
 import React from 'react';
+import {useState} from "react";
+// import {placeholder} from "@babel/types";
 
 import { FaRegEye, FaRegEyeSlash} from "react-icons/fa6";
+
 
 const PasswordInput = () => {
 
@@ -19,19 +22,21 @@ const PasswordInput = () => {
                    className="w-full text-sm bg-transparent py-3 mr-3 rounded outline-none  "
             />
 
-            {isShowPassword ? <FaRegEye
+            {isShowPassword ? ( <FaRegEye
                 size={22}
                 className="text-primary cursor-pointer"
-                onClick={() => toggleShowPassword()}/>;
+                onClick={() => toggleShowPassword()} />):(
 
-                <FaRegEyesSlash
+                <FaRegEyeSlash
+                    size={22}
+                    className="text-slate-400 cursor-pointer"
+                    onClick={() => toggleShowPassword()}
+        />
 
-                />
-
-            }
+    ) }
 
         </div>
-    )
-}
+    );
+};
 
 export default PasswordInput;
