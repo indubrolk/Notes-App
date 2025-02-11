@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 import {Link} from "react-router-dom";
 import {validateEmail} from "../../utils/helper.js";
 
