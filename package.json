@@ -6,6 +6,5 @@
     "tailwindcss": "^4.0.4"
   },
   "devDependencies": {
-    "@babel/types": "^7.26.8"
   }
 }
