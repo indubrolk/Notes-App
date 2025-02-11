@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../../components/Navbar.jsx";
 import {Link} from "react-router-dom";
+import {validateEmail} from "../../utils/helper.js";
+
 
 const SignUp = () => {
 
@@ -11,6 +13,24 @@ const SignUp = () => {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+
+        if (!name){
+            setError("Please enter your name");
+            return;
+        }
+
+        if(!validateEmail(email)){
+            setError("Please enter a valid Email Address");
+            return;
+        }
+
+        if(!password){
+            setError("Please enter the password");
+        }
+
+        setError('');
+
+        //signup api call
     };
 
     return (
@@ -42,6 +62,12 @@ const SignUp = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                        />
+
+                        {error && <p className="text-red-500 text-x5 pb-1">{error}</p>}
+
+                        <button type="submit" className="btn-primary">
+                            Create Account
+                        </button>
 
                         <p className="text-sm text-center mt-4">
                             Already have an account?{" "}
