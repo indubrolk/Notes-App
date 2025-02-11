@@ -3,6 +3,8 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {validateEmail} from "../../utils/helper.js";
+import PasswordInput from "../../components/input/PasswordInput.jsx";
+
 
 
 const SignUp = () => {
@@ -72,7 +74,7 @@ const SignUp = () => {
 
                         <p className="text-sm text-center mt-4">
                             Already have an account?{" "}
-                            <Link to="/Signup" className="font-medium text-blue-500 underline">
+                            <Link to="/login" className="font-medium text-blue-500 underline">
                                 Login
                             </Link>
                         </p>
