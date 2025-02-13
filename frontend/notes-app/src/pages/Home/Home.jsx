@@ -1,13 +1,19 @@
 import React from 'react';
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import NoteCard from "../../components/Cards/NoteCard.jsx";
+import AddEditNotes from "./AddEditNotes.jsx";
+import Modal from "react-modal";
 
 const Home = () => {
+    const[openAddEditModal, setOpenAddEditModal] = useState({
+        isShown: false,
+        type: "add",
+        data: null,
+    });
+
     return (
         <>
-
         <Navbar/>
-
 
             <div className="container mx-auto">
                 <div className="grid grid-cols-3 gap-4 mt-8">
@@ -47,6 +53,20 @@ const Home = () => {
 
             </div>
             </div>
+            <Modal
+                isOpen={openAddEditModal.isShown}
+                onRequestClose={() => {}}
+                style={{
+                    overlay:{
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                    }
+                }}
+                contentLabel=""
+                className=""
+                >
+                <AddEditNotes />
+
+            </Modal>
         </>
     );
 };
