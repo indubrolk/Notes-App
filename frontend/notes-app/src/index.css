@@ -25,7 +25,8 @@
     .icon-btn{
         @apply text-xl text-slate-300 cursor-pointer hover:text-blue-500;
     }
-    .input-box{
+    .input-label{
         @apply text-xs text-slate-400;
     }
+
 }

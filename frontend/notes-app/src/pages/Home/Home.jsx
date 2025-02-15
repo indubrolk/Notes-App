@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import {useState} from "react";
 import {MdAdd} from "react-icons/md";
 
+
 const Home = () => {
     const[openAddEditModal, setOpenAddEditModal] = useState({
         isShown: false,
@@ -36,9 +37,14 @@ const Home = () => {
             </div>
             </div>
 
-            <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500 hover:bg-blue-600 absolute right-10 bottom-10" onClick="{{} => {}}">
+            <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500 hover:bg-blue-600 absolute right-10 bottom-10" onClick={() => {
+                setOpenAddEditModal({isShown: true, type: "add", data: null});
+            }}
+
+            >
                 <MdAdd className="text-[32px] text-white"/>
             </button>
+
             <Modal
                 isOpen={openAddEditModal.isShown}
                 onRequestClose={() => {}}
@@ -50,8 +56,8 @@ const Home = () => {
                 contentLabel=""
                 className=""
                 >
-                <AddEditNotes />
 
+                <AddEditNotes />
             </Modal>
         </>
     );
