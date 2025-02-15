@@ -3,6 +3,8 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import NoteCard from "../../components/Cards/NoteCard.jsx";
 import AddEditNotes from "./AddEditNotes.jsx";
 import Modal from "react-modal";
+import {useState} from "react";
+import {MdAdd} from "react-icons/md";
 
 const Home = () => {
     const[openAddEditModal, setOpenAddEditModal] = useState({
@@ -28,31 +30,15 @@ const Home = () => {
                     onDelete={() => {}}
                     onPinNote={() => {}}
                 />
-                    <NoteCard
 
-                        title="Meeting on 14th February"
-                        date="13th Feb 2025"
-                        content="Meeting on ................"
-                        tags="meeting"
-                        isPinned={true}
-                        onEdit={() => {}}
-                        onDelete={() => {}}
-                        onPinNote={() => {}}
-                    />
-                    <NoteCard
 
-                        title="Meeting on 14th February"
-                        date="13th Feb 2025"
-                        content="Meeting on ................"
-                        tags="meeting"
-                        isPinned={true}
-                        onEdit={() => {}}
-                        onDelete={() => {}}
-                        onPinNote={() => {}}
-                    />
 
             </div>
             </div>
+
+            <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500 hover:bg-blue-600 absolute right-10 bottom-10" onClick="{{} => {}}">
+                <MdAdd className="text-[32px] text-white"/>
+            </button>
             <Modal
                 isOpen={openAddEditModal.isShown}
                 onRequestClose={() => {}}

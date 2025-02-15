@@ -27,9 +27,9 @@ const NoteCard = (
                 <MdOutlinePushPin className="icon-btn ${ }" onClick={onPinNote}/>
             </div>
 
-            <p className="">{content?.slice(0, 60)}</p>
+            <p className="text-xs text-slate-600 mt-2">{content?.slice(0, 60)}</p>
 
-            <div>
+            <div className="flex items-center justify-between mt-2">
 
                 <div className="text-xs text-slate-500">{tags}</div>
 
