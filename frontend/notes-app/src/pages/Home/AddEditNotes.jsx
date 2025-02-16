@@ -1,12 +1,16 @@
 import React, {useState} from "react";
 import TagInput from "../../components/input/TagInput.jsx";
+import {MdClose} from "react-icons/md";
 
-const AddEditNotes = () => {
+const AddEditNotes = ({onClose}) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [tags, setTags] = useState([]);
     return (
-        <div>
+        <div className="relative">
+            <button className="w-10 h-10 rounded-full flex items-center justify-center absolute -top-3 -right-3 hover:bg-slate-50" onClick={onClose}>
+                <MdClose className="text-xl text-slate-400"/>
+            </button>
             <div className="flex flex-col gap-2">
                 <label className="input-label">Title</label>
                 <input
