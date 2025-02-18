@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const config = require("./config.json");
+config.connectionString = undefined;
 const mongoose = require("mongoose");
 
 mongoose.connect(config.connectionString);
