@@ -1,10 +1,14 @@
 require("dotenv").config();
 
 const config = require("./config.json");
-config.connectionString = undefined;
+config.connectionString = process.env.MONGO_URI;
 const mongoose = require("mongoose");
 
-mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString, {
+    userNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log("MongoDB Connected"))
+    .catch(err => console.error("MongoDB Connection Error:", err));
 
 const User = require("./models/user.model");
 
@@ -29,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 // Create Account
-app.post("./create-account", async (req, res) => {
+app.post("/create-account", async (req, res) => {
 
     const { fullName, email, password } = req.body;
 
@@ -68,7 +72,7 @@ app.post("./create-account", async (req, res) => {
     await user.save();
 
     const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN, {
-        expiresIn: "30n"
+        expiresIn: "30m"
     });
 
     return res.json({
@@ -80,6 +84,6 @@ app.post("./create-account", async (req, res) => {
     });
 });
 
-app.listen(8000);
+app.listen(8000, () => console.log("Server running on port 8000"));
 
 module.exports = app;
